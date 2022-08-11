@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Type Prediction</title>
+    <style>
+        body {
+            background-color: rgb(149, 153, 152);
+        }
+
+        .head {
+            background-image: url('image.jpg');
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .tag {
+            font-size: 50px;
+            color: white;
+
+        }
+
+        .head .tag {
+            background-color: rgba(7, 7, 14, 0.562);
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            margin: 10px 0 0 20px;
+            padding: 100px 0 0 100px;
+        }
+
+        #h1 {
+            font-size: 30px;
+            margin: 50px 0 0 90px;
+        }
+
+        .intro {
+            margin: 0px 0 0 0px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-family: sans-serif;
+            letter-spacing: 1px;
+        }
+
+        ul {
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        .params {
+            margin: 0 0 0 500px;
+            height: 400px;
+            width: 400px;
+            padding: 0 0 0 10px;
+        }
+
+        .btn {
+            font-size: 20px;
+            padding: 5px;
+            margin: 0 0 0 30px;
+        }
+
+        footer {
+
+            background-color: rgba(7, 7, 14, 0.329);
+            height: 400px;
+            background-attachment: scroll;
+
+
+            position: relative;
+
+        }
+
+        marquee {
+            background-color: black;
+            margin: 390px 0 0 0;
+            color: white;
+        }
+
+
+        .foot .footer {
+            background-image: url('image1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="head">
+        <div class="tag">
+            <h1>Crop Type Prediction System</h1>
+            
+            </p>
+        </div>
+    </section>
+    <hr>
+    <section class="body">
+        <p class="intro">
+            Welcome to our Crop Yield Prediction System, this system can recommend the <br> kind of crop you should
+            plant
+            based on some properties of the soil and weather conditions.
+        </p>
+        <p class="intro">
+            This system can predict 23 different crops based on the input data supplied by the user to the
+            system.
+        <ul>
+            <li>Rice</li>
+            <li>Cotton</li>
+            <li>Mungbean</li>
+            <li>Pigeonpeas</li>
+            <li>Orange</li>
+            <li>Maize</li>
+            <li>Mango</li>
+            <li>Cashew</li>
+            <li>Mothbeans</li>
+            <li>Watermelon</li>
+            <li>Jute/Ewedu</li>
+            <li>Kidneybeans</li>
+            <li>Black Beans</li>
+            <li>Grapes</li>
+            <li>Palm Tree</li>
+            <li>Papaya</li>
+            <li>Coconut</li>
+            <li>Banana</li>
+            <li>Beni/Sesame Seed</li>
+            <li>Muskmelon</li>
+            <li>Chickpea</li>
+            <li>Potato</li>
+            <li>Coffee</li>
+        </ul>
+        </p>
+        <hr>
+        <div class="params">
+            <form action="{{url_for('predict')}}" method="post">
+                <p>
+                    <label for="">Nitrogen:</label>
+                    <input type="number" placeholder="Amount of Nitrogen (a integer)" required='required'
+                        name="nitrogen">
+                </p>
+
+                <p>
+                    <label for="">Phosphorus:</label>
+                    <input type="number" placeholder="Amount of Phosphorus (a integer)" required='required'
+                        name="phosphorus">
+                </p>
+
+                <p>
+                    <label for="">Potassium:</label>
+                    <input type="number" placeholder="Amount of Potassium (a integer)" required='required'
+                        name="potassium">
+                </p>
+
+                <p>
+                    <label for="">Temperature:</label>
+                    <input type="number" step="any" placeholder="Amount of Temperature (a float)" required='required'
+                        name="temperature">
+                </p>
+
+                <p>
+                    <label for="">Humidity:</label>
+                    <input type="number" step="any" placeholder="Amount of Humidity (a float)" required='required'
+                        name="humidity">
+                </p>
+
+                <p>
+                    <label for="">Soil pH:</label>
+                    <input type="number" step="any" placeholder="Amount of Soil pH (a float)" required='required'
+                        name="ph">
+                </p>
+
+                <p>
+                    <label for="">Rainfall:</label>
+                    <input type="number" step="any" placeholder="Amount of Rainfall (a float)" required='required'
+                        name="rainfall">
+                </p>
+
+                <button type="submit" class="btn">Predict</button>
+            </form>
+            <br>
+            <br>
+            <p>The right crop to grow on your farm  is: {{ prediction_text }}</p>
+            <br>
+            <br>
+        </div>
+
+        <hr>
+    </section>
+
+    <section class="foot">
+        <div class="footer">
+            
+        </div>
+    </section>
+
+</body>
+
+</html>
